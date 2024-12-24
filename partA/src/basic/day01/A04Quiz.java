@@ -1,47 +1,60 @@
 package basic.day01;
 
 public class A04Quiz {
-    public static void main(String[] args) {
-        // 환율: 1달러 1450원 
 
-        // 여행을 값니다. 여행 경비 500,000을 한전하려고 합니다.
-        // 환전 금액은 얼마인가 
+  public static void main(String[] args) {
+    
+    // 환율 : 1달러 1450원
 
-        int money = 500000;
-        int rateWon = 1450;
-        double result = wonToDollar(money,rateWon);
-        System.out.println("환전값="+result+"$");
+    // 여행을 갑니다. 여행 경비 500000 을 환전하려고 합니다.
+    // 환전 금액은 얼마인가?
+    int money = 500000;   // 원
+    int rateWon = 1450;
 
-        // 환전금액 구하는 메소드 wonToDollar(meney,rateWon)
-        // == 린턴 값(int) 으로 환전금액 출력하기 
+    // 환전금액 구하는 메소드 wonToDollar(money,rateWon) 
+    //  => 리턴 값(int) 으로 환전금액 출력하기
+    int result = wonToDollar(money,rateWon);
+    System.out.println("wonToDollar(money, rateWon) : "+ result);
 
-        // 여행을 다녀와서 귀국했습니다. 경비가 12달러 남았습니다. 
-        // 원화로 환전합니다. 
-         int exchange  = 12 ;
-         double reault1 = doolarToWon(exchange,rateWon);
-         System.out.println("원화환전="+reault1+"W");
+    double resultDouble = wonToDollarDouble(money, rateWon);
+    System.out.println("wonToDollarDouble(money, rateWon) : "+ resultDouble);
+   
+    // 여행을 다녀와서 귀국했습니다. 경비가 12달러가 남았습니다.
+    // 원화로 환전합니다.
+    money=12;   //달러
 
-        // 환전 금액 구하는 메소드 doolarToWon(meoney,rateWon)
-    } // main end 
+        // 환전 금액 구하는 메소드 dollarToWon(money,rateWon)
+        //  => 리턴 값(int) 으로 환전금액 출력하기
+        result = dollarToWon(money,rateWon);
+        System.out.println("dollarToWon(money,rateWon) :" + result);
+
+        resultDouble = dollarToWonDouble(money, rateWon);
+        System.out.println("dollarToWonDouble(money, rateWon) :" + resultDouble);
+
+      } // main end
+    
+
+      // wonToDollar 메소드 정의
+      // money, rateWon 은 wonToDollar 메소드 { } 스콥에서만 사용하는 지역변수
+      public static int wonToDollar(int money , int rateWon){
+          return money / rateWon;
+      }
+
+      // dollarToWon 메소드 정의
+      // money, rateWon 은 dollarToWon 메소드 { } 스콥에서만 사용하는 지역변수
+      public static int dollarToWon(int money, int rateWon){
+          return money * rateWon;
+      }
   
-      // wonToDollar 메소드 정의
-      // money , rateWon 은 wonToDollar 메소드{} 스콥에서만 사용하는 지역 변수 
-        public static double wonToDollar(int money, int rateWon){
-        return money/rateWon;     
-    } // dollarToWon 메소드 정의 
-      // money , rateWon 은 doolarToWon 메소드{} 스콥에서만 사용하는 지역 변수 
-        public static double doolarToWon(int exchagne, int rateWon){
-        return exchagne * rateWon;
-    } 
+      // 요구사항 : 인자의 형식은 int 로 합니다.
+      public static double wonToDollarDouble(int money , int rateWon){
+        return (double)money / rateWon;
+      }
 
-    /* 
-      // wonToDollar 메소드 정의
-        public static int wonToDollar(int money, int rateWon){
-        return money/rateWon;     
-    } // dollarToWon 메소드 정의 
-        public static int doolarToWon(int exchagne, int rateWon){
-        return exchagne * rateWon;
-    } 
-    */
-}  // class end 
+      public static double dollarToWonDouble(int money, int rateWon){
+        return (double)money * rateWon;
+    }
+  
 
+
+} // class end
