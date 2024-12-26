@@ -47,7 +47,8 @@ public class A09WhileTest {
     while(n<=m) {
         sum += n++;   // 11번 반복
     }
-    System.out.println("n=10부터 m=20 까지의 합 = " + sum);
+    // 터미널 인코딩 UTF-8로 변경. chcp 65001 
+    System.out.println("👩‍🦰n=10부터 m=20 까지의 합 = " + sum);
   }
  }
 
