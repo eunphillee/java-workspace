@@ -10,4 +10,11 @@ public class A05ForTest {
         System.out.println("sumNtoM(4,10) =" + result);
     }
 // 메소드 정의 sumNtoM(4,10) => 4부터 10까지 더하기 
+     public static long sumNtoM(int n, int m) {
+         long sum = 0; // 합을 저장할 변수
+         for (int i = n; i <= m; i++) { // n부터 m까지 반복
+             sum += i; // 현재 숫자를 합에 더하기
+         }
+         return sum; // 최종 합 반환
+       }       
 }
