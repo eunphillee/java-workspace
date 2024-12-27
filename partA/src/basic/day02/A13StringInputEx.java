@@ -21,16 +21,16 @@ public class A13StringInputEx {
              menu = sc.nextLine();
 
 
-             switch (menu) {
-                case "1":
+             switch (menu) {   // if문으로 하면 equals 메소드 사용 
+                case "1":   //menu.equals("1") 
                     System.out.println("장바구니 🔍🔍🔍 .. 많이 담아 주세요");
                     break;
-                    case "2":
+                    case "2": //menu.equals("2") 
                     System.out.println("배송조회 🚚🚚 .. 달려가는 중입니다.");
                     
                     break;
              
-                    case "3":
+                    case "3": 
                     System.out.println("주문목록 🎍🎍🎎 .. 감사합니다.");
                     
                     break;
