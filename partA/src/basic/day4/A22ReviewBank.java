@@ -7,7 +7,7 @@ public class A22ReviewBank {
     public static void main(String[] args) {
       
         int menu;
-        int money = 0;
+        int money;  // 입금액 또는 출금액 키보드 입력값
         int balance =0; 
         boolean run = true  ;
         String messageFmt;
@@ -25,25 +25,31 @@ public class A22ReviewBank {
                 System.out.print("예금액>");
                 money = sc.nextInt(); 
                 balance = money+balance;
-                System.out.println("😀고객님 잔액은"+balance +" 원 입니다. ");
+                // System.out.println("😀고객님 잔액은"+balance +" 원 입니다. ");
+                System.out.println(String.format("😀고객님 잔액은 %,d 원 입니다.", balance));
                 break;
             
             case 2: 
                 System.out.print("출금액");
                 money = sc.nextInt(); 
-                balance = balance-money;
-                System.out.print("😀고객님 잔액은"+balance +" 원 입니다. ");
+
+                if(money <= balance)
+                    balance = balance-money;
+                else
+                    System.out.println("고객님의 잔액이 출금액보다 부족합니다.");
+                System.out.println((String.format("😀고객님 잔액은 %,d 원 입니다. ", balance)));
                 break;
             
             case 3: 
             // System.out.print("현재 잔고");
             // money = sc.nextInt(); 
             // balance = money+balance;
-            System.out.println("현재잔고:"+balance +" 원 입니다. ");
+            // System.out.println("현재잔고:"+balance +" 원 입니다. ");
+            System.out.println((String.format("현재잔고 : %,d 원", balance)));
             break;
 
             case 4: 
-            System.out.println("종료합니다. 😍😍 ");
+            System.out.println("프로그램을 종료합니다. 😍😍 ");
             // 조건식을 참고하여 종료 조건 설정을 합니다. 
             run=false;
             break;
