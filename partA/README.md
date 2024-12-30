@@ -40,6 +40,9 @@
 - 1. 클래스 이름으로  클래스에 포함된 'static 메소드를 또는 속성' 호출
        -  System.out  : System 클래스의 static 속성
        -  A04Quiz.dollarToWon()
+       - String.format()
+       - Arrays.toString()
+       - Math.max()
 
 - 2. message 또는 sc는 변수. String message 또는 Scanner sc 로 선언된 변수 
      : message 와 sc 는 참조형 변수(참조형 변수). '인스턴스 메소드 '

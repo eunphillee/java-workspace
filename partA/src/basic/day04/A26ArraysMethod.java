@@ -5,15 +5,28 @@ import java.util.Arrays;
 // Arrays 클래스는 (자바 jdk) 의 메소드 테스트 
 public class A26ArraysMethod {
 
+    // Arrays.
+
     public static void main(String[] args) {
         int[] arr1 = {110,620,930,540,250,880};
         int[] arr2 = new int[10];
+
+        int[] arr7 = {110,620,930,540,250,880};
+        int[] arr8 = new int[50];
+
 
         // 1. 배열 요소들을 로 연결하여 하나의 문자열로 저장하기  
         String temp = Arrays.toString(arr1);   //{110,620,930,540,250,880};
         System.out.println("배열 요소들을 로 연결하여 하나의 문자열로 저장하기");
         System.out.println("arr1 :" + temp);
         System.out.println("arr2 :" + Arrays.toString(arr2));
+
+        String temp1 =Arrays.toString(arr7);
+        System.out.println("arr3 :" + temp1);
+        System.out.println("arr3 : " + Arrays.toString(arr8));
+
+    
+        
 
         // 2. 배열의 모든 요소를 특정 값으로 저장하기 
         System.out.println("2arr2, 111 ");
