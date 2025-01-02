@@ -27,8 +27,27 @@ public class  B07ConstructorTest {
 
     // 오류: The constructor MyClass8() is undefined
    // MyClass8 m88 = new MyClass8();
+
+     // 기본생성자와 여러 유형으로 인자를 갖는 커스텀 생성자 예시
+     System.out.println("====MyClass7로 객체 생성하기 ====");
+     MyClass9 m9 = new MyClass9();
+     System.out.println("m9 의 인스턴스 필드 값:"
+                    +m9.field1 +","+m9.field2);   // 
+
+     MyClass9 m99 = new MyClass9(100);
+     System.out.println("m99 의 인스턴스 필드 값:"
+                    +m99.field1 +","+m99.field2);   // 
+
+     MyClass9 m999 = new MyClass9("100");
+     System.out.println("m999 의 인스턴스 필드 값:"
+                    +m999.field1 +","+m999.field2);
+
  
- }
+ } // main end 
+
+   // 생성자 권한 : private, default, public, protected 모두 가능합니다. 
+   //           private 생성자는 다른 클래스에서는 객체 생성 금지시키기.
+   //             (싱글톤 유형에서 사용. 디자인 패턴 중 하나 입니다. )
 
 
 }
