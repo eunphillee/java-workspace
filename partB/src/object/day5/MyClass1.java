@@ -15,10 +15,14 @@ public class MyClass1 {
 
         // final 키워드 : 값을 변경할 수 없는 변수. 초기값을 반드시 저장해야 합니다. 
         // static final : 상수(대문자로 표기). 자바스크립트의 const 같은 성질 
-        static final int TEST_VALUE = 1234; 
+        public static final int TEST_VALUE = 1234; 
 
 }
 
 class MyClass2{
+        String name;
+        int age;
+
+        static int type;
 
 }
