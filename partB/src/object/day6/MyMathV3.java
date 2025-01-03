@@ -2,15 +2,15 @@ package object.day6;
 
 public class MyMathV3 {
 
-    private int first;
+    private int first;   
     private int second;
     private OperationType opType;
     private char opChar;
     private long answer;
 
-    // 1. 생성자
+    // 1. 생성자: 인스턴스 값의 초기화 
     public MyMathV3(int first, int second, OperationType opType){
-        this.first = first;
+        this.first = first;  
         this.second = second;
         this.opType = opType;
         this.opChar = switch(this.opType){
@@ -52,12 +52,12 @@ public class MyMathV3 {
       };
       return result;
     }
-
+    // 정답을 출력할 메소드 예: "123 + 456 = 579"
     public String toString(){
       return String.format("%d %c %d = %d",
           this.first, this.opChar,this.second,calculate());
     }
-    
+    //문제를 출력하는 메소드  예: "123 + 456 = ?"
     public void printProblem(){
       System.out.print(String.format("%d %c %d = ?  >>> ",
           this.first, this.opChar,this.second));
