@@ -1,4 +1,4 @@
-package object.day9;
+package object.day10;
 
 // day8 Shape 과 동일한 소스파일
 public class Shape {
@@ -19,8 +19,6 @@ public class Shape {
   public String toString() {
     return "Shape [shName=" + shName + ", width=" + width + ", height=" + height + "]";
   }
-
-  
 
 }
 
