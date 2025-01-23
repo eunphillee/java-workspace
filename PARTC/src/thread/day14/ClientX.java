@@ -25,3 +25,6 @@ public class ClientX {
   }
 
 }
+
+// 공간// 장소
+// 시간// 순서 
