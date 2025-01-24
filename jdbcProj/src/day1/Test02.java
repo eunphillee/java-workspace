@@ -13,7 +13,7 @@ public class Test02 {
         Connection connection = OracleConnectionUtil.getConnection();
 
         String customId="hongGS";
-        String sql="SELECT * FROM TBL_CUSTOMER WHERE CUSTOM_ID=:?";
+        String sql="SELECT * FROM TBL_CUSTOMER WHERE CUSTOM_ID=?";
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
@@ -30,6 +30,7 @@ public class Test02 {
                     rs.getInt(4),
                     rs.getDate(5)
                 );
+                System.out.println("조회 결과 : " +customer);
             }
             
         }catch(SQLException e) {
@@ -37,5 +38,4 @@ public class Test02 {
         }
         OracleConnectionUtil.close(connection);
     }
-
 }
