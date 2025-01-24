@@ -3,6 +3,7 @@ package dao.day2;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import vo.day1.Customer;
@@ -56,32 +57,43 @@ public class TblCustomerDao {
       }
       return result;
     }
-    // 기본키 값으로 삭제 
+
+    // 기본키 값으로 삭제
     public int delete(String customId) {
-      int result = 0;
+      int result =0;
       String sql="DELETE FROM tbl_customer WHERE custom_id = ?";
       try (Connection connection = getConnection();
            PreparedStatement pstmt = connection.prepareStatement(sql);
           ) {
             pstmt.setString(1, customId);
             result = pstmt.executeUpdate();
-        
       } catch (Exception e) {
         System.out.println("예외 : " + e.getMessage());
       }
       return result;
     }
 
-    // 기본키 값으로 조회
-    public Customer selectByPk(){
-      String sql="";
+    // 기본키 custom_id 컬럼 값으로 조회
+    public Customer selectByPk(String custom_id){
+      String sql="SELECT * FROM tbl_customer WHERE custom_id = ?";
+      Customer customer = null;
       try (Connection connection = getConnection();
            PreparedStatement pstmt = connection.prepareStatement(sql);
           ) {
-        
+            pstmt.setString(1,  custom_id);
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()) {
+              customer = new Customer(rs.getString(1),
+                      rs.getString(2),
+                      rs.getString(3),
+                      rs.getInt(4),     //age 컬럼
+                      rs.getDate(5),    //reg_date 컬럼
+                      rs.getString(6)); //postcode 컬럼
+            }
+
       } catch (Exception e) {
         System.out.println("예외 : " + e.getMessage());
       }
-      return null;
+      return customer;
     } 
 }
