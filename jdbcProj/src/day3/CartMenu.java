@@ -47,6 +47,9 @@ public class CartMenu {
         case "B","b":
           buyOneItem();
           break;
+        case "Y","y":
+          buyCartItems();
+          break;  
         case "X","x":
           run=false;
           break;
@@ -87,10 +90,36 @@ public class CartMenu {
 
   // 장바구니 목록으로 구매하기 - n개 행 insert (트랜잭션)
   public void buyCartItems() {
+    System.out.println("----- 장바구니 구매 -----");
+
+    // 장바구니가 비어있는지 확인
+    if (list.isEmpty()) {
+        System.out.println("장바구니가 비어 있습니다. 상품을 추가하세요.");
+        return;
+    }
+
+    // DAO를 사용해 데이터베이스에 장바구니 항목 삽입
+    try {
+        // 1. 각 장바구니 항목에 고객 ID 설정 (현재 로그인한 사용자)
+        for (BuyVo vo : list) {
+            vo.setCustom_id(this.customerId); // 현재 로그인한 사용자 ID 설정
+        }
+
+        // 2. DAO를 통해 데이터베이스에 삽입 (트랜잭션 처리)
+        int result = dao.insertMany(list);
+
+        // 3. 삽입 성공 여부 확인
+        if (result > 0) {
+            System.out.println("장바구니의 모든 상품을 성공적으로 구매하였습니다.");
+            list.clear(); // 장바구니 비우기
+        } else {
+            System.out.println("구매 처리 중 문제가 발생했습니다.");
+        }
+    } catch (Exception e) {
+        System.out.println("구매 처리 중 오류 발생: " + e.getMessage());
+    }
   
   }
-
-
 
 
   // 장바구니의 추가/삭제/목록 은 dao 상관없이 List 조작입니다.
@@ -104,7 +133,7 @@ public class CartMenu {
     // 장바구니 상품들 총 결제금액을 구할 예정
   }
 
-  public void addCartItem(){
+  public void addCartItem(){     // 상품을 장바구니 추가 
     System.out.println("----- 장바구니 상품 추가 -----");
     boolean run= true;
 
