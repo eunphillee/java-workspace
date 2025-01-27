@@ -1,6 +1,9 @@
+
 package day2;
 
-import dao.day2.TblCustomerDao;
+import java.util.function.ToLongBiFunction;
+
+import dao.day2.TblCustomerDao_ORIGIN;
 import vo.day1.Customer;
 
 public class CustomerRegisterApp {
@@ -42,7 +45,10 @@ public class CustomerRegisterApp {
     System.out.println("===== 고객 조회 메뉴 입니다. ======");
     System.out.print(" 아이디 입력 >>> ");
     String customid = System.console().readLine();  
-    TblCustomerDao customerDao = new TblCustomerDao();
+
+    // TblCustomerDao customerDao = new TblCustomerDao();   // 싱글톤 패턴 정의하면 오류
+    TblCustomerDao_ORIGIN customerDao = TblCustomerDao_ORIGIN.getInstance();
+
     Customer customer = customerDao.selectByPk(customid);
     System.out.println("[이름] " + customer.getName());
     System.out.println("[이메일] " + customer.getEmail());
@@ -57,7 +63,10 @@ public class CustomerRegisterApp {
     System.out.print(" 아이디 입력 >>> ");
     String customid = System.console().readLine();  
     
-    TblCustomerDao customerDao = new TblCustomerDao();
+
+    // TblCustomerDao customerDao = new TblCustomerDao();   // 싱글톤 패턴 정의하면 오류
+    TblCustomerDao_ORIGIN customerDao = TblCustomerDao_ORIGIN.getInstance();
+
     int result = customerDao.delete(customid);
 
     if(result ==0){
@@ -68,7 +77,10 @@ public class CustomerRegisterApp {
   }
 
   public static void modify() {
-    TblCustomerDao customerDao = new TblCustomerDao();
+ 
+    // TblCustomerDao customerDao = new TblCustomerDao();   // 싱글톤 패턴 정의하면 오류
+    TblCustomerDao_ORIGIN customerDao = TblCustomerDao_ORIGIN.getInstance();
+
     System.out.println("===== 고객 정보 수정 메뉴 입니다. ======");
     System.out.print(" 아이디 입력 >>> ");
     String customid = System.console().readLine();   
@@ -98,7 +110,10 @@ public class CustomerRegisterApp {
   }
 
   public static void register(){
-    TblCustomerDao customerDao = new TblCustomerDao();
+   
+    // TblCustomerDao customerDao = new TblCustomerDao();   // 싱글톤 패턴 정의하면 오류
+    TblCustomerDao_ORIGIN customerDao = TblCustomerDao_ORIGIN.getInstance();
+    
     System.out.println("===== 고객 등록 (회원 가입) 메뉴 입니다. ======");
     boolean run = true;
     String customid = null;
